@@ -17,7 +17,7 @@ export default class ProductRepository {
 
     async getByName(productName){ 
         const productDB = await this.dao.getByName(productName)
-        const product = new Product(productDB)
+        const product = productDB.map((product) => new Product(product))
         return product
     }
 

@@ -24,7 +24,7 @@ export class ProductService {
 
     async getByName(productName){ 
         const products = await this.repository.getByName(productName)
-        return products.asDTO()
+        return products.map((product) => product.asDTO())
     }
 
     async getByCategory(category){ 

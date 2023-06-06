@@ -6,7 +6,8 @@ import {
     addProduct, 
     updateProduct, 
     deleteProduct,
-    getByBrand
+    getByBrand,
+    getProductSearch
  } from "../Controllers/ProductController.js";
 
 
@@ -16,6 +17,7 @@ ProductRouter.get("/", await getProducts)
 ProductRouter.get("/:id", await getProductById)
 ProductRouter.get("/category/:category", await getByCategory)
 ProductRouter.get("/brand/:brand", await getByBrand)
+ProductRouter.get("/search/:productName", await getProductSearch)
 ProductRouter.post("/", await addProduct)
 ProductRouter.put("/:id", await updateProduct)
 ProductRouter.delete("/:id", await deleteProduct)

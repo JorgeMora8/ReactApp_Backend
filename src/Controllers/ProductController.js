@@ -9,6 +9,16 @@ export async function getProducts(req, res){
     }
 }
 
+export async function getProductSearch(req, res){ 
+    console.log(req.params.productName)
+    try{
+        const products = await productService.getByName(req.params.productName)
+        res.status(200).send(products)
+    }   catch(err){ 
+        res.status(400).json({"ERROR":`${err.message}`})
+    }
+}
+
 export async function getByCategory(req, res) {
 
     try{ 

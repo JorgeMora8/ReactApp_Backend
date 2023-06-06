@@ -22,7 +22,7 @@ export default class DAO{
     }
 
     async getByName(productName) { 
-        const item = await this.model.findOne({name:productName}, {_id:0, __v:0})
+        const item = await this.model.find( { $text: { $search: productName } } )
         return item    
     }
 
